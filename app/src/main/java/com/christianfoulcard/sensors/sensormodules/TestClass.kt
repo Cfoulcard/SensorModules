@@ -13,6 +13,7 @@ class TestClass : AppCompatActivity(), SensorLight {
         setContentView(R.layout.activity_main)
 
         val textView = findViewById<TextView>(R.id.textView)
+        val extraText = "Extraaa"
 
         val toaster = Toaster()
         textView.text = toaster.toasterMessage
