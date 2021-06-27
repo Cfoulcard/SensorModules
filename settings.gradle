@@ -1,0 +1,4 @@
+rootProject.name = "Sensor Modules"
+include ':app'
+include ':lightsensor'
+include ':mylibrary'
