@@ -12,9 +12,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/lightsensor" />
             <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/pressuresensor" />
+            <option value="$PROJECT_DIR$/sensorlibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

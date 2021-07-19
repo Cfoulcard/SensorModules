@@ -1,5 +1,5 @@
 rootProject.name = "Sensor Modules"
 include ':app'
-include ':lightsensor'
+include ':sensorlibrary'
 include ':mylibrary'
 include ':pressuresensor'

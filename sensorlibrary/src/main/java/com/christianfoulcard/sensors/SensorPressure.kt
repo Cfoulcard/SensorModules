@@ -1,4 +1,4 @@
-package com.example.pressuresensor
+package com.christianfoulcard.sensors
 
 import android.content.Context
 import android.hardware.Sensor
@@ -18,5 +18,4 @@ interface SensorPressure : SensorEventListener {
 
         }
     }
-
 }

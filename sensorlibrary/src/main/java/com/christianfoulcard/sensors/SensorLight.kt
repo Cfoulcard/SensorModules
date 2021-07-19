@@ -1,4 +1,4 @@
-package com.christianfoulcard.sensors.lightsensor
+package com.christianfoulcard.sensors
 
 import android.content.Context
 import android.hardware.Sensor
@@ -18,13 +18,5 @@ interface SensorLight : SensorEventListener {
         } else {
 
         }
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        return
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        return
     }
 }
