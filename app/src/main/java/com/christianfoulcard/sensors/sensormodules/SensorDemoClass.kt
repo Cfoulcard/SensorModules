@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.christianfoulcard.sensors.SensorAmbientTemperature
 import com.christianfoulcard.sensors.SensorLight
 import com.christianfoulcard.sensors.SensorPressure
+import com.christianfoulcard.sensors.SensorRelativeHumidity
 
-class SensorDemoClass : AppCompatActivity(), SensorLight, SensorPressure, SensorAmbientTemperature {
+class SensorDemoClass : AppCompatActivity(), SensorLight, SensorPressure, SensorAmbientTemperature,
+    SensorRelativeHumidity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,16 +20,18 @@ class SensorDemoClass : AppCompatActivity(), SensorLight, SensorPressure, Sensor
 
     override fun onStart() {
         super.onStart()
-        
+
         getLightSensor(this)
         getPressureSensor(this)
         getAmbientTemperatureSensor(this)
+        getRelativeHumidity(this)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
         val lightView = findViewById<TextView>(R.id.lightView)
         val pressureView = findViewById<TextView>(R.id.pressureView)
         val ambientTemperatureView = findViewById<TextView>(R.id.ambientTemperatureView)
+        val relativeHumidityView = findViewById<TextView>(R.id.relativeHumidityView)
 
         if (event?.sensor?.type == Sensor.TYPE_LIGHT) {
             val lightValue = event.values?.get(0).toString()
@@ -41,7 +45,12 @@ class SensorDemoClass : AppCompatActivity(), SensorLight, SensorPressure, Sensor
 
         if (event?.sensor?.type == Sensor.TYPE_AMBIENT_TEMPERATURE) {
             val ambientTemperatureValue = event.values?.get(0).toString()
-            ambientTemperatureView.text = "Pressure: $ambientTemperatureValue"
+            ambientTemperatureView.text = "Ambient Temperature: $ambientTemperatureValue"
+        }
+
+        if (event?.sensor?.type == Sensor.TYPE_RELATIVE_HUMIDITY) {
+            val relativeHumidityValue = event.values?.get(0).toString()
+            relativeHumidityView.text = "Relative Humidity: $relativeHumidityValue"
         }
     }
 
