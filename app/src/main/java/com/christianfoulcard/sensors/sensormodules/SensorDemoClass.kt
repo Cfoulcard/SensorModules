@@ -1,5 +1,6 @@
 package com.christianfoulcard.sensors.sensormodules
 
+import android.annotation.SuppressLint
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.os.Bundle
@@ -20,13 +21,17 @@ class SensorDemoClass : AppCompatActivity(), SensorLight, SensorPressure, Sensor
 
     override fun onStart() {
         super.onStart()
+        initializeSensors()
+    }
 
+    private fun initializeSensors() {
         getLightSensor(this)
         getPressureSensor(this)
         getAmbientTemperatureSensor(this)
         getRelativeHumidity(this)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onSensorChanged(event: SensorEvent?) {
         val lightView = findViewById<TextView>(R.id.lightView)
         val pressureView = findViewById<TextView>(R.id.pressureView)
@@ -53,7 +58,6 @@ class SensorDemoClass : AppCompatActivity(), SensorLight, SensorPressure, Sensor
             relativeHumidityView.text = "Relative Humidity: $relativeHumidityValue"
         }
     }
-
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         return

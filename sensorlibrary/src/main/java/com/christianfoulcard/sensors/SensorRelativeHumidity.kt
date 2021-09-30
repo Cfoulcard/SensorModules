@@ -4,18 +4,21 @@ import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.util.Log
 
 interface SensorRelativeHumidity : SensorEventListener {
 
     fun getRelativeHumidity(context: Context) {
+        val tag = this::class.java.simpleName
         val sensorManager: SensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        Log.d(tag, "Getting humidity data")
         var relativeHumidity: Sensor? = null
 
         relativeHumidity = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
-        if (relativeHumidity == sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)) {
+        if (relativeHumidity == sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY) && relativeHumidity != null) {
             sensorManager.registerListener(this, relativeHumidity, SensorManager.SENSOR_DELAY_NORMAL)
         } else {
-
+            Log.d(tag, "Humidity sensor not supported on this device")
         }
     }
 }
