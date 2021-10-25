@@ -10,6 +10,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_homescreen.xml" value="0.2740036231884058" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2740036231884058" />
+        <entry key="app/src/main/res/layout/activity_main_testing.xml" value="0.5322916666666667" />
+        <entry key="app/src/main/res/layout/fragment_blank_one.xml" value="0.5166666666666667" />
+        <entry key="app/src/main/res/layout/fragment_blank_two.xml" value="0.5322916666666667" />
       </map>
     </option>
   </component>
